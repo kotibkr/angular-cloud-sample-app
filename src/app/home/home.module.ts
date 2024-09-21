@@ -5,13 +5,14 @@ import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
 import { HomeRoutes } from './home.routes';
 import { MatCardModule } from '@angular/material/card';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 
 @NgModule({
   declarations: [HomeComponent],
   imports: [
     CommonModule, RouterModule.forChild(HomeRoutes),
-    MaterialModule, MatCardModule
+    MaterialModule, MatCardModule, FlexLayoutModule
   ]
 })
 export class HomeModule { }

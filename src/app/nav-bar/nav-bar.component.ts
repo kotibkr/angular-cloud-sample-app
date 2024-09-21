@@ -22,12 +22,12 @@ export class NavBarComponent {
     {
       label: "My Account",
       icon: "attach_money",
-      link: "app/feature-two"
+      link: ""
     },
     {
       label: "Refer",
       icon: "notes",
-      link: "feature-one"
+      link: "app/feature-two"
     },
     {
       label: "Settings",

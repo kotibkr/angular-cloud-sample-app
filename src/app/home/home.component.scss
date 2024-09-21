@@ -1,11 +1,16 @@
+mat-toolbar {
+    justify-content: space-between;
+}
+
 .content {
     padding: 16px;
 }
 
 .content>mat-card {
-    width: 200px;
+    margin-bottom: 16px;
 }
 
-.mat-mdc-card {
-    position: relative;
+.column-label {
+    margin-right: 8px;
+    font-size: 1rem;
 }

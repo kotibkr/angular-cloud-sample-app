@@ -10,84 +10,83 @@ export class FeatureOneComponent implements OnInit {
   constructor() { }
   columns = [
 
-    { columnDef: 'name', header: 'Name' },
+    { columnDef: 'product', header: 'Product' },
     { columnDef: 'date', header: 'Date' },
     { columnDef: 'company', header: 'Company' },
     { columnDef: 'country', header: 'Country' },
-    { columnDef: 'city', header: 'City' },
-    { columnDef: 'phone', header: 'Phone' },
+    { columnDef: 'quantity', header: 'Quantity' },
+    { columnDef: 'amout', header: 'Amout' },
   ]
   data: any[] = [];
   ngOnInit() {
     // get data from API 
     this.data = [
       {
-        "name": "Molly Pope",
+        "product": "Molly Pope",
         "date": "Jul 27, 2021",
         "company": "Faucibus Orci Institute",
         "country": "New Zealand",
-        "city": "Campinas",
-        "phone": "1-403-634-0276"
+        "quantity": "Campinas",
+        "amout": "1403"
       },
       {
-        "name": "Alfonso Vinson",
+        "product": "Alfonso Vinson",
         "date": "May 11, 2021",
         "company": "Non Ante Corp.",
         "country": "United Kingdom",
-        "city": "Redlands",
-        "phone": "1-405-411-6336"
+        "quantity": "Redlands",
+        "amout": "411"
       },
       {
-        "name": "Camden David",
+        "product": "Camden David",
         "date": "Aug 6, 2022",
         "company": "Cursus Et LLP",
         "country": "Nigeria",
-        "city": "Iguala",
-        "phone": "(415) 628-6853"
+        "quantity": "Iguala",
+        "amout": "6853"
       },
       {
-        "name": "Levi Goff",
+        "product": "Levi Goff",
         "date": "Nov 3, 2021",
         "company": "Vitae Incorporated",
         "country": "Sweden",
-        "city": "Manavgat",
-        "phone": "1-545-823-7985"
+        "quantity": "Manavgat",
+        "amout": "7985"
       },
       {
-        "name": "Madaline Leach",
+        "product": "Madaline Leach",
         "date": "Jun 13, 2022",
         "company": "Erat Volutpat Corp.",
         "country": "Chile",
-        "city": "Niterói",
-        "phone": "1-678-156-9674"
+        "quantity": "Niterói",
+        "amout": "9674"
       },
       {
-        "name": "Camden David",
+        "product": "Camden David",
         "date": "Aug 6, 2022",
         "company": "Cursus Et LLP",
         "country": "Nigeria",
-        "city": "Iguala",
-        "phone": "(415) 628-6853"
+        "quantity": "Iguala",
+        "amout": "6853"
       },
       {
-        "name": "Levi Goff",
+        "product": "Levi Goff",
         "date": "Nov 3, 2021",
         "company": "Vitae Incorporated",
         "country": "Sweden",
-        "city": "Manavgat",
-        "phone": "1-545-823-7985"
+        "quantity": "Manavgat",
+        "amout": "7985"
       },
       {
-        "name": "Madaline Leach",
+        "product": "Madaline Leach",
         "date": "Jun 13, 2022",
         "company": "Erat Volutpat Corp.",
         "country": "Chile",
-        "city": "Niterói",
-        "phone": "1-678-156-9674"
+        "quantity": "Niterói",
+        "amout": "9674"
       }
     ];
   }
-
   onTableAction(event: any) {
     console.log('event', event)
   }

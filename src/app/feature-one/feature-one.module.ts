@@ -5,12 +5,35 @@ import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 import { FeatureOneRoutes } from './feature-one.routes';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { MatCustomTableComponent } from '../shared/components/mat-custom-table/mat-custom-table.component';
+import { FormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
+import { CdkTableModule } from '@angular/cdk/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule } from '@angular/material/input';
+import { MatSortModule } from '@angular/material/sort';
 
 
 @NgModule({
-  declarations: [FeatureOneComponent],
+  declarations: [FeatureOneComponent, MatCustomTableComponent],
   imports: [CommonModule, RouterModule.forChild(FeatureOneRoutes),
-    MatCardModule, MatCardModule, FlexLayoutModule
+    MatCardModule, FlexLayoutModule,
+    MatTableModule,
+    MatButtonModule,
+    MatIconModule,
+    CdkTableModule,
+    MatMenuModule,
+    MatPaginatorModule,
+    MatCheckboxModule,
+    MatToolbarModule,
+    MatInputModule,
+    FormsModule,
+    MatSortModule
   ],
   providers: [],
   schemas: [
