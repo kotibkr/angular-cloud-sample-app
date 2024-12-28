@@ -1,0 +1,93 @@
+mat-card {
+    width: 400px;
+    margin: auto;
+    padding: 20px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+button {
+    width: 100%;
+}
+
+mat-card-header {
+    text-align: center;
+}
+
+mat-card-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-card-title {
+    text-align: center;
+}
+
+.bg-image {
+    /* The image used */
+    background-image: url("./../../../assets/images/stones-bgm.jpg");
+
+    /* Add the blur effect */
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/opacity/see-through */
+    color: white;
+    font-weight: bold;
+    border: 3px solid #f1f1f1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('./../../../assets/images/stones-bgm.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-card {
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    /* Aligns the card to the right */
+    align-items: center;
+    top: 20%;
+}
+
+.full-width {
+    width: 100%;
+    margin-bottom: 1rem;
+}

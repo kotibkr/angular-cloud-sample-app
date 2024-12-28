@@ -1,0 +1,65 @@
+<div *ngIf="data && data.action === 'delete'">
+    <h2 mat-dialog-title>Delete file</h2>
+    <mat-dialog-content>
+        Would you like to delete the ?
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close cdkFocusInitial color="primary" (click)="onAction('yes')">Yes</button>
+        <button mat-button mat-dialog-close color="warn" (click)="onAction('no')">No</button>
+    </mat-dialog-actions>
+</div>
+
+<div *ngIf="data && data.action === 'edit'">
+    <h2 mat-dialog-title>Edit the Record</h2>
+    <mat-dialog-content class="mat-typography">
+        <!-- src/app/dynamic-form/dynamic-form.component.html -->
+
+        <div *ngIf="dynamicForm && (formConfig && formConfig.length > 0)">
+            <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+                <div *ngFor="let field of formConfig">
+                    <label [for]="field.name">{{ field.label }}</label>
+
+                    <!-- Dynamic form controls -->
+                    <div [ngSwitch]="field.type">
+                        <!-- Text input -->
+                        <mat-form-field *ngSwitchCase="'text'" appearance="fill">
+                            <input matInput [formControlName]="field.name" [type]="field.type" [id]="field.name" />
+                        </mat-form-field>
+
+                        <!-- Email input -->
+                        <mat-form-field *ngSwitchCase="'textarea'" appearance="fill">
+                            <input matInput [formControlName]="field.name" [type]="field.type" [id]="field.name" />
+                        </mat-form-field>
+
+                        <!-- File Upload -->
+                        <input
+                        *ngIf="field.type === 'file'"
+                        type="file"
+                        (change)="onFileChange($event, field.field)"
+                      />
+                        <!-- <mat-form-field *ngSwitchCase="'file'" appearance="fill">
+                            <input type="text" matInput [value]="field.name" readonly />
+                            <input type="file" (change)="onFileChange($event, field.field)" style="display: none;"
+                                #fileInput />
+                            <button mat-raised-button color="primary" (click)="fileInput.click()">Choose File</button>
+                        </mat-form-field> -->
+
+                        <!-- Select input -->
+                        <!-- <mat-form-field *ngSwitchCase="'select'">
+                            <mat-select [formControlName]="field.name" [id]="field.name">
+                                <mat-option *ngFor="let option of field.options" [value]="option">{{ option
+                                    }}</mat-option>
+                            </mat-select>
+                        </mat-form-field> -->
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </mat-dialog-content>
+    <mat-divider [style.margin-top.px]="12"></mat-divider>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close cdkFocusInitial color="primary" (click)="onAction('yes')">Yes</button>
+        <button mat-button mat-dialog-close color="warn" (click)="onAction('no')">No</button>
+    </mat-dialog-actions>
+</div>

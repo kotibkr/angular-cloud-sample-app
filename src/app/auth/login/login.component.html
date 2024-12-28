@@ -1,0 +1,33 @@
+<div class="login-container" fxLayout="row" fxLayoutAlign="stretch">
+    <mat-card>
+        <mat-card-title>Welcome Back!</mat-card-title>
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <mat-card-content>
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" type="email" required />
+                    <mat-error *ngIf="loginForm.get('email')?.hasError('required')">Email is required</mat-error>
+                    <mat-error *ngIf="loginForm.get('email')?.hasError('email')">Invalid email format</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Password</mat-label>
+                    <input matInput formControlName="password" type="password" required />
+                    <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Password is
+                        required</mat-error>
+                </mat-form-field>
+            </mat-card-content>
+
+            <mat-card-actions>
+                <button mat-raised-button color="primary" type="submit"
+                    [disabled]="loginForm.invalid">Login</button><br>
+            </mat-card-actions>
+
+            <mat-card-actions>
+                <p style="color: green;">Does not have an account? &nbsp;</p><button mat-button
+                    (click)="signUp()" style="width: 40%; ">Sign Up</button>
+            </mat-card-actions>
+
+        </form>
+    </mat-card>
+</div>

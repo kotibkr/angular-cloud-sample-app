@@ -57,3 +57,17 @@ table {
   height: 34px;
   width : 34px;
 }
+
+mat-header-cell {
+  color: black;
+  font-weight: bold;
+}
+
+.editAction {
+  color: green;
+  padding: 0.2em;
+}
+
+.deleteAction {
+  color: red;
+}

@@ -33,7 +33,7 @@ export class MatCustomTableComponent implements OnInit {
     this.displayedColumns = this.displayedColumns.concat(this.columns.map(x => x.columnDef));    // pre-fix static
 
     // add action column
-    // this.displayedColumns.push("action");
+    this.displayedColumns.push("action");
     this.dataSource = new MatTableDataSource<any>(this.dataset);
 
     // set pagination
@@ -62,6 +62,10 @@ export class MatCustomTableComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  onEditClick(row: any) {
+    console.log("row", row);
   }
 }
 

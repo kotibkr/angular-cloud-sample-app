@@ -1,0 +1,15 @@
+<!-- src/app/referral/referral.component.html -->
+<div class="referral-container">
+    <h2>Share Your Referral Link</h2>
+    <mat-form-field appearance="fill">
+        <mat-label>Enter Your Referral Code</mat-label>
+        <input matInput [(ngModel)]="referralCode" placeholder="Referral Code" />
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="generateReferralLink()">Generate Link</button>
+
+    <div *ngIf="referralLink" class="link-container">
+        <h3>Your Referral Link:</h3>
+        <input [value]="referralLink" readonly />
+        <button mat-button (click)="copyLink(referralLink)">Copy Link</button>
+    </div>
+</div>

@@ -1,5 +1,13 @@
 <div class="content">
-    <h4>My Orders</h4>
+
+    <div fxLayout="row" fxLayoutGap="1px" fxLayout.sm="column">
+        <div fxFlex="2 0 auto">
+            <h4>My Orders</h4>
+        </div>
+
+        <button mt="{10}" mat-raised-button (click)="addNewColumn()">Add New Column</button>
+
+    </div>
     <app-mat-custom-table (action)="onTableAction($event)" [dataset]="data" [columns]="columns">
     </app-mat-custom-table>
 </div>

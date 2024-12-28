@@ -1,16 +1,27 @@
+<button mt="{10}" mat-raised-button (click)="addGrade()" [style.margin-top.px]="12" [style.margin-bottom.px]="12" class="grade-btn">Add New Grade</button><br>
+<p></p>
+
 <div class="content">
     <div fxLayout="row wrap" fxLayoutGap="16px grid">
-        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let num of [1,2,3,4,5,6,7]">
+        <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let pic of pictures">
             <mat-card class="mat-elevation-z4">
-                <mat-card-header>
-                    <mat-card-title>Mountains {{num}}</mat-card-title>
-                </mat-card-header>
-                <img mat-card-image
-                    src="https://material.angular.io/assets/img/examples/shiba2.jpg" />
+                <mat-card-title xLayout.gt-xs="row" fxLayout.xs="column">{{pic.title}}
+                </mat-card-title>
+                <mat-divider [style.margin-bottom.px]="5"></mat-divider>
+                <img mat-card-image class="mat-card-image" src="{{pic.img}}" width="150" height="150"/>
                 <mat-card-content>
-                    <p>The Himalayas is a mountain range in Asia.</p>
+                    <p>{{pic.content}}</p>
                 </mat-card-content>
+                <mat-divider [style.margin-top.px]="12"></mat-divider>
+                <mat-card-actions align="end">
+                    <mat-icon fxFlex="10%" class="action_edit" (click)="onClickEdit(pic)">mode_edit</mat-icon>&nbsp;
+                    <mat-icon fxFlex="10%" class="action_delete" (click)="onClickDelete(pic)">delete</mat-icon>
+                </mat-card-actions>
             </mat-card>
         </div>
     </div>
+</div>  
+
+<div *ngIf="isShowDynamicForm">
+    <dynamic-form-dialog></dynamic-form-dialog>
 </div>

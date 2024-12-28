@@ -3,25 +3,31 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatIconModule } from '@angular/material/icon';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { ReferralService } from '../referral/referral.service';
+import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
 export interface PeriodicElement {
   name: string;
   position: number;
   weight: number;
-  symbol: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
+  { position: 1, name: 'https://yourwebsite.com?ref=sdfsfsfssfsdfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfs', weight: 10079 },
+  { position: 2, name: 'https://yourwebsite.com?ref=sdfsfsfssfsdfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfs', weight: 40026 },
+  { position: 3, name: 'https://yourwebsite.com?ref=sdfsfsfssfsdfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfs', weight: 6941 },
+  { position: 4, name: 'https://yourwebsite.com?ref=sdfsfsfssfsdfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfs', weight: 90122 },
+  { position: 5, name: 'https://yourwebsite.com?ref=sdfsfsfssfsdfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfs', weight: 10811 },
+  { position: 6, name: 'https://yourwebsite.com?ref=sdfsfsfssfsdfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfs', weight: 120107 },
+  { position: 7, name: 'https://yourwebsite.com?ref=sdfsfsfssfsdfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfs', weight: 140067 },
+  { position: 8, name: 'https://yourwebsite.com?ref=sdfsfsfssfsdfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfs', weight: 159994 },
+  { position: 9, name: 'https://yourwebsite.com?ref=sdfsfsfssfsdfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfs', weight: 189984 },
+  { position: 10, name: 'https://yourwebsite.com?ref=sdfsfsfssfsdfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfdsfs', weight: 201797 },
 ];
 
 @Component({
@@ -29,11 +35,12 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './feature-two.component.html',
   styleUrls: ['./feature-two.component.scss'],
   standalone: true,
-  imports: [MatTableModule, MatCheckboxModule, MatIconModule],
+  imports: [CommonModule, MatButtonModule, MatCardModule, FormsModule, MatTableModule, MatCheckboxModule, MatIconModule, MatInputModule, MatFormFieldModule],
 })
 export class FeatureTwoComponent implements OnInit {
-
-  constructor() { }
+  referralCode: string = '';
+  referralLink: string = '';
+  constructor(private referralService: ReferralService) { }
   columns = [
 
     { columnDef: 'product', header: 'Product' },
@@ -114,7 +121,7 @@ export class FeatureTwoComponent implements OnInit {
     ];
   }
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['position', 'name', 'weight'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   selection = new SelectionModel<PeriodicElement>(true, []);
 
@@ -147,4 +154,19 @@ export class FeatureTwoComponent implements OnInit {
     console.log('event', event)
   }
 
+  generateReferralLink() {
+    this.referralLink = this.referralService.getReferralLink(this.referralCode);
+    console.log("referralLink", this.referralLink);
+  }
+
+  copyLink(link: string) {
+    navigator.clipboard.writeText(link).then(() => {
+      alert('Link copied to clipboard!');
+    });
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }

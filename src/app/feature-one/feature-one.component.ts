@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Columns from '../shared/objects/column.json';
 
 @Component({
   selector: 'app-feature-one',
@@ -8,15 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class FeatureOneComponent implements OnInit {
 
   constructor() { }
-  columns = [
+  columns = Columns;
 
-    { columnDef: 'product', header: 'Product' },
-    { columnDef: 'date', header: 'Date' },
-    { columnDef: 'company', header: 'Company' },
-    { columnDef: 'country', header: 'Country' },
-    { columnDef: 'quantity', header: 'Quantity' },
-    { columnDef: 'amout', header: 'Amout' },
-  ]
   data: any[] = [];
   ngOnInit() {
     // get data from API 
@@ -91,4 +85,9 @@ export class FeatureOneComponent implements OnInit {
     console.log('event', event)
   }
 
+
+
+  addNewColumn() {
+
+  }
 }

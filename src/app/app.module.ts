@@ -14,10 +14,18 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MaterialModule } from './material/material.module';
 import { MatCardModule } from '@angular/material/card';
+import { provideHttpClient } from '@angular/common/http';
+import { provideOAuthClient } from 'angular-oauth2-oidc';
+import { AngularFireModule } from "@angular/fire/compat";
+import { environment } from 'src/environments/environment';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
 
 @NgModule({
   declarations: [AppComponent, NavBarComponent],
-  imports: [BrowserModule, RouterModule.forRoot(AppRoutes, { onSameUrlNavigation: 'reload' }), BrowserAnimationsModule,
+  imports: [BrowserModule, 
+    RouterModule.forRoot(AppRoutes, { onSameUrlNavigation: 'reload' }), 
+    BrowserAnimationsModule,
     MatCardModule,
     MatToolbarModule,
     FlexLayoutModule,
@@ -25,13 +33,18 @@ import { MatCardModule } from '@angular/material/card';
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
-    MaterialModule
+    MaterialModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    MatSidenavModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [],
+  providers: [
+    provideHttpClient(),
+    provideOAuthClient()
+  ],
   exports: [RouterModule],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
