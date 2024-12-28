@@ -1,0 +1,69 @@
+<mat-card class="settings">
+    <h2>Settings</h2>
+    <div class="container">
+
+        <mat-form-field>
+            <mat-label>Enter your Name</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="pat@example.com" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Phone number</mat-label>
+            <mat-icon matSuffix>phone</mat-icon>
+            <input matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Input</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Select</mat-label>
+            <mat-select>
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Textarea</mat-label>
+            <textarea matInput></textarea>
+        </mat-form-field>
+    </div>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit" [disabled]="dynamicForm.invalid"
+            style="width: 40%;">Submit</button>
+    </mat-card-actions>
+</mat-card>
+
+<!-- <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+    <div formArrayName="formFields" *ngIf="formFields && formFields.length > 0">
+        <div *ngFor="let control of formFields.controls; let i = index">
+            <div [formGroupName]="i" *ngIf="fieldsData">
+                {{fieldsData}}
+                <label>{{ fieldsData[i].label }}</label>
+                <input [formControlName]="i" [type]="fieldsData[i].type" />
+                <div *ngIf="control.invalid && control.touched" class="error">
+                    This field is required
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" [disabled]="dynamicForm.invalid">Submit</button>
+</form> -->

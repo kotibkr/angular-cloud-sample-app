@@ -1,0 +1,26 @@
+.settings {
+  max-width: 60%;
+  margin: auto;
+  margin-top: 1em;
+}
+
+h2 {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.mat-mdc-form-field {
+  padding: 1em;
+  width: 45%;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+}

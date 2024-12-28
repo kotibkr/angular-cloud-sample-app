@@ -1,0 +1,26 @@
+[
+    {
+        "columnDef": "product",
+        "header": "Product"
+    },
+    {
+        "columnDef": "date",
+        "header": "Date"
+    },
+    {
+        "columnDef": "company",
+        "header": "Company"
+    },
+    {
+        "columnDef": "country",
+        "header": "Country"
+    },
+    {
+        "columnDef": "quantity",
+        "header": "Quantity"
+    },
+    {
+        "columnDef": "amout",
+        "header": "Amout"
+    }
+]

@@ -1,0 +1,33 @@
+mat-toolbar {
+    justify-content: space-between;
+}
+
+.content {
+    padding: 16px;
+}
+
+.content>mat-card {
+    margin-bottom: 16px;
+}
+
+.column-label {
+    margin-right: 8px;
+    font-size: 1rem;
+}
+
+.mat-mdc-card-title {
+    padding: 5px;
+}
+
+.mat-card-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+}
+
+.grade-btn {
+    margin-bottom: 12px;
+    position: absolute;
+    right: 1em;
+}
